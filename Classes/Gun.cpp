@@ -54,7 +54,38 @@ Gun::~Gun()
 }
 
 void Gun::Shoot() {
-	
+	if (_scene->getChildByName("Bullet") == nullptr) {
+		_isShot = false;
+	}
+	if (!_isShot && _ammo->getAmmo()) {
+		_ammo->popBullet();
+
+		checkOutOfBullets();
+
+		if (_scene->getChildByName("Tutorial")) {
+			_scene->getChildByName("Tutorial")->removeFromParentAndCleanup(1);
+		}
+
+		if (_scene->getChildByName("Hint")) {
+			_scene->getChildByName("Hint")->removeFromParentAndCleanup(1);
+		}
+
+		if (_scene->getChildByName("ObjectTutorial")) {
+			_scene->getChildByName("ObjectTutorial")->removeFromParentAndCleanup(1);
+		}
+
+		Animation* animation = Animation::createWithSpriteFrames(getAnimation("Canon_Gun_%02d.png"), 0.03f);
+		Animate* shootAnim = Animate::create(animation);
+		CallFunc* shooting = CallFunc::create([&] {
+			int directtion = (this->getParent()->getScaleX() > 0) ? 1 : -1;
+			float rotation = (directtion > 0) ? _currentRotation : -_currentRotation;
+			_bullet = new Bullet(directtion, rotation, _shootingPoint->convertToWorldSpace(Vec2::ZERO), _scene);
+			_bullet->setAmmo(_ammo);
+			_isShot = true;
+		});
+
+		this->runAction(Sequence::create(shootAnim, shooting, nullptr));
+	}
 }
 
 void Gun::checkOutOfBullets() {
