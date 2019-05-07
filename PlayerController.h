@@ -25,11 +25,11 @@ private:
 	Node* _fakeBullet;
 	Vec2 previousDot;
 
-	bool _isTutorial;
-	int _maxDots;
+	bool _isTutorial = false;
+	int _maxDots = 40;
 	int _dots;
 	float _currentDegree;
-	bool _isTrajectory;
+	bool _isTrajectory = true;
 	
 
 	void simulateTrajectory();

@@ -14,7 +14,9 @@ public:
 
 	Gun* _gun;
 
+	void setBodyPartsRotateion(float degree);
 	void shoot();
+	void setOpacityForAll(float a);
 	int getAmmo();
 	void reloadAmmo(int ammo);
 
