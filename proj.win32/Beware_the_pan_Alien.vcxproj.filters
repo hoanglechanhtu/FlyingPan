@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Player">
+      <UniqueIdentifier>{6eafb1f7-7555-4f95-af9b-2361a6c1dc3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Player\FX">
+      <UniqueIdentifier>{487d2e19-7342-4f7e-9c9e-1e55c8a1ece5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene">
+      <UniqueIdentifier>{f3d4f97f-0b7f-40a9-9cfe-e144dcdde90f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Enemies">
+      <UniqueIdentifier>{d45b7e6f-2af6-43ef-8d6e-1081613b1380}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\UI">
+      <UniqueIdentifier>{e071814a-ddf8-4ee7-ab84-bbe4dfec7725}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Items">
+      <UniqueIdentifier>{348e0eca-4e46-40fb-94ce-eda38bb86277}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene\Tutorial">
+      <UniqueIdentifier>{2ab5703f-2f2a-4330-9307-9f5a33ff7f1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Scene\Handler">
+      <UniqueIdentifier>{9de1142f-bf2e-4201-810f-3d8e091ea5cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\UI\WinAndFail">
+      <UniqueIdentifier>{304a3dc7-238e-401d-8ddc-d9a1668a88c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\UI\Buttons">
+      <UniqueIdentifier>{c32a7a44-d303-44db-9133-ea50488311c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Enemies\Handler">
+      <UniqueIdentifier>{592db427-56db-411f-b03f-1c195c6a4f65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Enemies\FX">
+      <UniqueIdentifier>{4e964fed-a00d-4274-aa24-f647eb21f3fc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\BWTP_Func.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Player.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PlayerController.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Bullet.cpp">
+      <Filter>src\Player\FX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FX.cpp">
+      <Filter>src\Player\FX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Gun.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Ammo.cpp">
+      <Filter>src\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainMenu.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Alien.cpp">
+      <Filter>src\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MainScene.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Logo.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TNT.cpp">
+      <Filter>src\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Init.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Lava.cpp">
+      <Filter>src\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Rock.cpp">
+      <Filter>src\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Pan.cpp">
+      <Filter>src\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Tutorial.cpp">
+      <Filter>src\Scene\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ObjectTutorial.cpp">
+      <Filter>src\Scene\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameplayTutorial.cpp">
+      <Filter>src\Scene\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MissionHandler.cpp">
+      <Filter>src\Scene\Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FailPoster.cpp">
+      <Filter>src\UI\WinAndFail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\RewardPoster.cpp">
+      <Filter>src\UI\WinAndFail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MyButton.cpp">
+      <Filter>src\UI\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Store.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Enemies.cpp">
+      <Filter>src\Enemies\Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\EnemyExplosion.cpp">
+      <Filter>src\Enemies\FX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ChickenEater.cpp">
+      <Filter>src\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AnoyingFly.cpp">
+      <Filter>src\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Canon.cpp">
+      <Filter>src\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MovingGround.cpp">
+      <Filter>src\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SelectMap.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ChainSaw.cpp">
+      <Filter>src\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Portal.cpp">
+      <Filter>src\Items</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\BWTP_Func.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Player.h">
+      <Filter>src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PlayerController.h">
+      <Filter>src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Bullet.h">
+      <Filter>src\Player\FX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FX.h">
+      <Filter>src\Player\FX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Gun.h">
+      <Filter>src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Ammo.h">
+      <Filter>src\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainMenu.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Alien.h">
+      <Filter>src\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MainScene.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Logo.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameDefine.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TNT.h">
+      <Filter>src\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Init.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Lava.h">
+      <Filter>src\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Rock.h">
+      <Filter>src\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Pan.h">
+      <Filter>src\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Tutorial.h">
+      <Filter>src\Scene\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ObjectTutorial.h">
+      <Filter>src\Scene\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameplayTutorial.h">
+      <Filter>src\Scene\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MissionHandler.h">
+      <Filter>src\Scene\Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FailPoster.h">
+      <Filter>src\UI\WinAndFail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\RewardPoster.h">
+      <Filter>src\UI\WinAndFail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MyButton.h">
+      <Filter>src\UI\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Store.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Enemies.h">
+      <Filter>src\Enemies\Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EnemyExplosion.h">
+      <Filter>src\Enemies\FX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ChickenEater.h">
+      <Filter>src\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AnoyingFly.h">
+      <Filter>src\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Canon.h">
+      <Filter>src\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MovingGround.h">
+      <Filter>src\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SelectMap.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ChainSaw.h">
+      <Filter>src\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Portal.h">
+      <Filter>src\Items</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
