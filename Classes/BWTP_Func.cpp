@@ -62,3 +62,28 @@ void addTileMap(TMXTiledMap* map, string objectName, PhysicsMaterial material, i
 		parent->addChild(edgeSp); // Add obj into Layer
 	}
 }
+
+Vector<SpriteFrame*> getAnimation(const char* format)
+{
+	auto spriteCache = SpriteFrameCache::getInstance();
+	Vector<SpriteFrame*> animFrames;
+	char str[100];
+	int i = 1;
+	SpriteFrame* frame;
+	do {
+		sprintf(str, format, i);
+		frame = spriteCache->getSpriteFrameByName(str);
+		if (frame) animFrames.pushBack(frame);
+		i++;
+	} while (frame != nullptr);
+
+	return animFrames;
+}
+
+SpriteFrame* getSprite(const char* format)
+{
+	auto spriteCache = SpriteFrameCache::getInstance();
+	SpriteFrame* frame;
+	frame = spriteCache->getSpriteFrameByName(format);
+	return frame;
+}
