@@ -49,5 +49,22 @@ Pan::~Pan()
 {
 }
 
-
+void Pan::touchOnPan(Ref* sender, ui::Widget::TouchEventType type) {
+	switch (type)
+	{
+	case ui::Widget::TouchEventType::BEGAN:
+		if (_isClicked == false) {
+			_isClicked = true;
+			_currentRotation += _rotateAngel;
+			this->setRotation(_currentRotation);
+		}
+		break;
+	case ui::Widget::TouchEventType::ENDED: {
+		_isClicked = false;
+		break;
+	}
+	default:
+		break;
+	}
+}
 
