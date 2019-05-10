@@ -53,6 +53,51 @@ bool Logo::init()
 
 	//string outPutDirPath = FileUtils::getInstance()->getWritablePath() + "/Android/data/com.test.app/resources";
 
+    auto visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+	experimental::AudioEngine::preload("bgMusic.mp3");
+	experimental::AudioEngine::preload("level_bg_music.mp3");
+	experimental::AudioEngine::preload("pan.mp3");
+	experimental::AudioEngine::preload("alien.mp3");
+	experimental::AudioEngine::preload("boom.mp3");
+	experimental::AudioEngine::preload("gunshot.mp3");
+	experimental::AudioEngine::preload("roastedChicked.mp3");
+	experimental::AudioEngine::preload("winning.mp3");
+	experimental::AudioEngine::preload("wasted.mp3");
+	experimental::AudioEngine::preload("teleport.mp3");
+
+	experimental::AudioEngine::play2d("bgMusic.mp3", true,0.8f);
+	
+	//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	//audio->preloadBackgroundMusic("bgMusic.mp3");
+	//audio->preloadBackgroundMusic("level_bg_music.mp3");
+	//audio->preloadEffect("pan.wav");
+	//audio->preloadEffect("alien.wav");
+	//audio->preloadEffect("boom.wav");
+	//audio->preloadEffect("gunshot.wav");
+	//audio->preloadEffect("roastedChicked.wav");
+	//audio->playBackgroundMusic("bgMusic.mp3", true);
+
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/Cowboy.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/Canon_Gun.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/bullet/FX/Gun_Shot_FX.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("player/bullet/FX/Bullet_Wall_Contact.plist");
+
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemies/Alien.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemies/AnoyingFly.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemies/Alien_Body_Parts.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemies/CE_Body_Parts.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemies/AF_Body_Parts.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("enemies/FX/Blood_Hit.plist");
+
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("UI/rewards/FX/Firework.plist");
+
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("items/TNT_Explosion.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("items/Portal.plist");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("items/Portal_Blue.plist");
+
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("tutorial/Tutorial.plist");
+
 	auto background = Sprite::create("logo.png");
 	background->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
 	background->setScale(visibleSize.width / background->getContentSize().width, visibleSize.height / background->getContentSize().height);
