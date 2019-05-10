@@ -101,6 +101,80 @@ bool Portal::onContactBegin(PhysicsContact& contact) {
 	return true;
 }
 
+bool Portal::onContactSeparate(PhysicsContact& contact) {
+	auto objectB = (Portal*)contact.getShapeB()->getBody()->getNode();
+	auto objectA = (Portal*)contact.getShapeA()->getBody()->getNode();
+	if (objectB == nullptr || objectA == nullptr) {
+		return true;
+	}
+
+	Portal* other = nullptr;
+	Portal* Portal = nullptr;
+
+	// Check if Alien hit
+	if (objectA->getName() == "Portal" + to_string(objectA->getEnemyTag())) {
+		Portal = objectA;
+		other = objectB;
+	}
+	else if (objectB->getName() == "Portal" + to_string(objectB->getEnemyTag())) {
+		Portal = objectB;
+		other = objectA;
+	}
+
+	if (other == nullptr || Portal == nullptr) return true;
+
+	//MessageBox(to_string(other->getTag()).c_str(), "a");
+
+	switch (other->getTag())
+	{
+	case BULLET: {
+		break;
+	}
+	default:
+		break;
+	}
+
+	return true;
+}
+
+void Portal::leteport(Bullet* bullet) {
+	if (_isTeleported == true) return;
+	_isTeleported = true;
+	_outputPortal->_isTeleported = true;
+
+	// Play Portal explode sound
+	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("boom.wav");
+	experimental::AudioEngine::play2d("teleport.mp3");
+	// If Portal's not exploded yet
+	_bulletVelocity = bullet->getPhysicsBody()->getVelocity();
+	_bulletDirection = (_bulletVelocity.x > 0) ? 1 : -1;
+	Vec2 distanceFromBulletToThis = bullet->getPosition() - this->getPosition();
+
+	bullet->getPhysicsBody()->setVelocity(Vec2::ZERO);
+	bullet->setVisible(false);
+	_bullet = bullet;
+
+	_bulletVelocity.x = _bulletVelocity.x * cos(-_outputPortal->getRotation() * PI / 180) - _bulletVelocity.y * sin(-_outputPortal->getRotation() * PI / 180);
+	_bulletVelocity.y = _bulletVelocity.x * sin(-_outputPortal->getRotation() * PI / 180) + _bulletVelocity.y * cos(-_outputPortal->getRotation() * PI / 180);
+
+	MoveTo* moveTo = MoveTo::create(0.0f, _outputPortal->getPosition() + Vec2(0.0f,distanceFromBulletToThis.y));
+	ScaleTo* delay = ScaleTo::create(1.0f, bullet->getScaleX(), bullet->getScaleY());
+	CallFunc* teleportBullet = CallFunc::create([&] {
+		_bullet->setVisible(true);
+		_bullet->getPhysicsBody()->setVelocity(_bulletDirection * _bulletVelocity);
+	});
+
+	bullet->runAction(Sequence::create(delay, teleportBullet, moveTo, nullptr));
+
+	CallFunc* setTeleport = CallFunc::create([&] {
+		_isTeleported = false;
+		_outputPortal->_isTeleported = false;
+	});
+	ScaleTo* delayPortal = ScaleTo::create(1.0f, 1.0f);
+	ScaleTo* scale = ScaleTo::create(0.2f, 0.5f, 1.0f);
+	_outputPortal->runAction(Sequence::create(delayPortal, scale, setTeleport, nullptr));
+}
+
 int Portal::getEnemyTag() {
 	return this->_tag;
 }
