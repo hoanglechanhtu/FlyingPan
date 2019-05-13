@@ -22,3 +22,5 @@ private:
 	void touchOnPan(Ref* sender, ui::Widget::TouchEventType type);
 };
 
+
+

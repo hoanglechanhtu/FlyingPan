@@ -154,6 +154,66 @@ bool PlayerController::onTouchBegan(Touch* touch, Event* event) {
 	return true;
 }
 
+void PlayerController::onTouchMoved(Touch* touch, Event* event) {
+	if (this->getParent()->getChildByTag(ITEMS_SELECTED) != nullptr) return;
+	if (this->getParent()->getChildByName("Bullet") != nullptr) return;
+	if (touch->getLocation() == touch->getPreviousLocation()) return;
+	if (_player->getAmmo() == 0) return;
+
+	Vec2 distance = touch->getLocation() - _player->_gun->_shootingPoint->convertToWorldSpace(Vec2::ZERO);
+	float dist = sqrtf(distance.x * distance.x + distance.y * distance.y);
+
+	float degrees = atanf(distance.y / distance.x) * 180.0f / PI;
+	if (abs(_currentDegree - degrees) < 0.25f) return;
+	_currentDegree = degrees;
+
+	float currentScaleX = (distance.x > 0) ? abs(_player->getScaleX()) : -abs(_player->getScaleX());
+	//_player->setScaleX(currentScaleX);
+	if (currentScaleX > 0) {
+		_player->setBodyPartsRotateion(-degrees);
+	}
+	else {
+		degrees += 180;
+		_player->setBodyPartsRotateion(-degrees);
+	}
+
+	//_aim->clear();
+	//Vec2 point;
+	//float shortestRaycast = 99999;
+	//auto func = [&point, &shortestRaycast](PhysicsWorld& world,
+	//	const PhysicsRayCastInfo& info, void* data)->bool
+	//{
+	//	switch (info.shape->getGroup())
+	//	{
+	//	case WALL:
+	//	case PAN:
+	//	case ROCK:
+	//	case LAVA:
+	//	case CANON:
+	//	case CHAINSAW:
+	//	case PORTAL:
+	//		if (info.fraction < shortestRaycast) {
+	//			point = info.contact;
+	//			shortestRaycast = info.fraction;
+	//		}
+	//		break;
+	//	default:
+	//		break;
+	//	}
+	//	return true;
+	//};
+	//PhysicsWorld* world = Director::getInstance()->getRunningScene()->getPhysicsWorld();
+	////_aim->drawSegment(_player->_gun->_shootingPoint->convertToWorldSpace(Vec2::ZERO), _player->_gun->_shootingPoint2->convertToWorldSpace(Vec2::ZERO), 2, Color4F::RED);
+	//world->rayCast(func, _player->_gun->_shootingPoint->convertToWorldSpace(Vec2::ZERO), _player->_gun->_shootingPoint2->convertToWorldSpace(Vec2::ZERO), nullptr);
+	//_aim->drawSegment(_player->_gun->_shootingPoint->convertToWorldSpace(Vec2::ZERO), point, 1, Color4F::RED);
+	//_aim->drawDot(point, 3.0f, Color4F::WHITE);
+
+	_trajectory->clear();
+	if (_isTrajectory == true) {
+		simulateTrajectory();
+	}
+}
+
 void PlayerController::onTouchEnded(Touch* touch, Event* event) {
 	if (_player->getAmmo() == 0) return;
 
@@ -220,6 +280,26 @@ void PlayerController::simulateTrajectory() {
 	this->runAction(RepeatForever::create(Sequence::create(drawDots, delay, nullptr)));
 
 	//_fakeBullet->getPhysicsBody()->setDynamic(false);
+}
+
+void PlayerController::hint(float angle) {
+	int currentPlayerScale = (angle < 90 && angle > -90) ? 1 : -1;
+	int rotate = (angle < 90 && angle > -90)? angle : 180 - angle;
+	_player->setBodyPartsRotateion(-1 * currentPlayerScale *rotate);
+
+	DrawNode* hintDraw = DrawNode::create();
+	hintDraw->setName("Hint");
+	hintDraw->setOpacity(150);
+	this->getParent()->addChild(hintDraw);
+
+	Vec2 shootingPoint = _player->_gun->_shootingPoint->getPosition();
+
+	for (int i = 1; i <= 35; i++) {
+		_player->_gun->_shootingPoint->setPosition(_player->_gun->_shootingPoint->getPosition() + Vec2(i * 3, 0));
+		hintDraw->drawDot(_player->_gun->_shootingPoint->convertToWorldSpace(Vec2::ZERO), 3.0f, Color4F::WHITE);
+	}
+
+	_player->_gun->_shootingPoint->setPosition(shootingPoint);
 }
 
 void PlayerController::setEnableTrajectory(bool isEnable) {
