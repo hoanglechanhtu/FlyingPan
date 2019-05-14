@@ -126,9 +126,8 @@ bool HelloWorld::init()
 
 	//[Huy]End : Read data using JSON
 	//CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("level_bg_music.mp3");
-	//TODO fix later
-	//experimental::AudioEngine::stopAll();
-	//int _idBgMusic = experimental::AudioEngine::play2d("level_bg_music.mp3",true);
+	experimental::AudioEngine::stopAll();
+	int _idBgMusic = experimental::AudioEngine::play2d("level_bg_music.mp3",true);
 
 	// Start :: Background with physicEdgeBox
 	_background = initBackground("Background/Western_Background.png", this);
@@ -191,8 +190,7 @@ bool HelloWorld::init()
 	//[Huy]Start
 	_missionHandler = new MissionHandler(_controller, _player, this);
 	_missionHandler->setLevelName(_levelName);
-	//TODO fix later
-	//_missionHandler->setIDbgMusic(_idBgMusic);
+	_missionHandler->setIDbgMusic(_idBgMusic);
 	_enemies->setMissionHandler(_missionHandler);
 	//[Huy]End
 
