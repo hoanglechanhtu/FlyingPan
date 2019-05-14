@@ -92,12 +92,12 @@ bool Canon::onContactBegin(PhysicsContact& contact) {
 void Canon::load(Node* bullet) {
 	// Play Canon explode sound
 	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("boom.wav");
-	//experimental::AudioEngine::play2d("boom.mp3");
+	//cocos2d::experimental::AudioEngine::play2d("boom.mp3");
 	// If Canon's not exploded yet
 	if (_isExploded == true) return;
 	_isExploded = true;
 	
-	experimental::AudioEngine::play2d("click.mp3");
+	cocos2d::experimental::AudioEngine::play2d("click.mp3");
 	_bullet = bullet;
 	_bullet->getPhysicsBody()->setVelocity(Vec2::ZERO);
 	_bullet->getPhysicsBody()->setEnabled(false);
@@ -129,7 +129,7 @@ void Canon::onTouch(Ref* sender, ui::Widget::TouchEventType type) {
 	case ui::Widget::TouchEventType::BEGAN:
 		break;
 	case ui::Widget::TouchEventType::ENDED: {
-		experimental::AudioEngine::play2d("gunshot.mp3");
+		cocos2d::experimental::AudioEngine::play2d("gunshot.mp3");
 		// Stop Idle state and move to loaded state
 		this->stopAllActions();
 		float rotate = this->getRotation();

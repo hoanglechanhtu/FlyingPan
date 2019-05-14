@@ -80,7 +80,7 @@ void SelectMap::onClickMap(Ref* sender, ui::Widget::TouchEventType type) {
 	switch (type)
 	{
 	case cocos2d::ui::Widget::TouchEventType::BEGAN:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		break;
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
 		Director::getInstance()->replaceScene(TransitionFade::create(0.5, MainScene::createScene(0)));

@@ -126,8 +126,8 @@ bool HelloWorld::init()
 
 	//[Huy]End : Read data using JSON
 	//CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic("level_bg_music.mp3");
-	experimental::AudioEngine::stopAll();
-	int _idBgMusic = experimental::AudioEngine::play2d("level_bg_music.mp3",true);
+	cocos2d::experimental::AudioEngine::stopAll();
+	int _idBgMusic = cocos2d::experimental::AudioEngine::play2d("level_bg_music.mp3",true);
 
 	// Start :: Background with physicEdgeBox
 	_background = initBackground("Background/Western_Background.png", this);

@@ -113,7 +113,7 @@ bool Bullet::onContactBegin(PhysicsContact& contact) {
 	case ROCK: {
 		// Play Sound
 		//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("wall.wav");
-		experimental::AudioEngine::play2d("wall.mp3");
+		cocos2d::experimental::AudioEngine::play2d("wall.mp3");
 		FX* bullethitWall = new FX(
 			bullet->getPosition(),
 			Vec2(0.5, 0.5),
@@ -143,7 +143,7 @@ bool Bullet::onContactBegin(PhysicsContact& contact) {
 		_currentHitTarget = other;
 		// Player sound
 		//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("pan.wav");
-		experimental::AudioEngine::play2d("pan.mp3");
+		cocos2d::experimental::AudioEngine::play2d("pan.mp3");
 		// Spawn FX
 		FX* bullethitWall = new FX(
 			bullet->getPosition(),
@@ -179,7 +179,7 @@ void Bullet::remove() {
 
 		CallFunc* createRoastedChicken = CallFunc::create([&] {
 			// Play Chicken's Dead sound
-			experimental::AudioEngine::play2d("roastedChicken.mp3");
+			cocos2d::experimental::AudioEngine::play2d("roastedChicken.mp3");
 
 			// Spawn Roasted Chicken Sprite
 			Sprite* roastedChicken = Sprite::create("items/Knocked_Chicken.png");

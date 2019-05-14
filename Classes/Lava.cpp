@@ -94,7 +94,7 @@ void Lava::explode(Bullet* bullet) {
 void Lava::createRoastedChicken() {
 	// Play Chicken's Dead sound
 	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("roastedChicken.wav");
-	experimental::AudioEngine::play2d("roastedChicken.mp3");
+	cocos2d::experimental::AudioEngine::play2d("roastedChicken.mp3");
 	// Spawn Roasted Chicken Sprite
 	Sprite* roastedChicken = Sprite::create("items/Roasted_Chicken.png");
 	roastedChicken->setTag(BULLET);

@@ -56,7 +56,7 @@ AnoyingFly::~AnoyingFly()
 void AnoyingFly::destroy() {
 	// Play AnoyingFly dead sound
 	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("AnoyingFly.wav");
-	experimental::AudioEngine::play2d("AnoyingFly.mp3");
+	cocos2d::experimental::AudioEngine::play2d("AnoyingFly.mp3");
 	// Spawn FX
 	FX* bloodHitFX = new FX(
 		this->getPosition(),

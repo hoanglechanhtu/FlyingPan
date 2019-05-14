@@ -159,8 +159,8 @@ bool MainScene::init()
 	{
 		return false;
 	}
-	experimental::AudioEngine::stopAll();
-	experimental::AudioEngine::play2d("bgMusic.mp3",true);
+	cocos2d::experimental::AudioEngine::stopAll();
+	cocos2d::experimental::AudioEngine::play2d("bgMusic.mp3",true);
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -493,7 +493,7 @@ void MainScene::next(Ref* sender, ui::Widget::TouchEventType type) {
 	case ui::Widget::TouchEventType::BEGAN:
 		break;
 	case ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		if (_pageView->getCurPageIndex() < (MENU_PAGES - 1)) {
 			_currentPage = (int)_pageView->getCurPageIndex();
 			_currentPage++;
@@ -510,7 +510,7 @@ void MainScene::buyHeart(Ref* sender, ui::Widget::TouchEventType type) {
 	{
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
 		if (_coin > coinToHeartArr.at(button->getTag())) {
-			experimental::AudioEngine::play2d("buy.mp3");
+			cocos2d::experimental::AudioEngine::play2d("buy.mp3");
 			_heart += heartArr.at(button->getTag());
 			_heartLabel->setString(to_string(_heart));
 			//_heart = 0;
@@ -522,7 +522,7 @@ void MainScene::buyHeart(Ref* sender, ui::Widget::TouchEventType type) {
 			def->flush();
 		}
 		else {
-			experimental::AudioEngine::play2d("error.mp3");
+			cocos2d::experimental::AudioEngine::play2d("error.mp3");
 		}
 		break;
 	default:
@@ -534,7 +534,7 @@ void MainScene::buyCoin(Ref* sender, ui::Widget::TouchEventType type) {
 	switch (type)
 	{
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("buy.mp3");
+		cocos2d::experimental::AudioEngine::play2d("buy.mp3");
 		_coin += coinToDollarArr.at(button->getTag());
 		def->setIntegerForKey("coin",_coin);
 		_coinLabel->setString(to_string(_coin));
@@ -550,7 +550,7 @@ void MainScene::previous(Ref* sender, ui::Widget::TouchEventType type) {
 	case ui::Widget::TouchEventType::BEGAN:
 		break;
 	case ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		if (_pageView->getCurPageIndex() > 0) {
 			_currentPage = (int)_pageView->getCurPageIndex();
 			_currentPage--;
@@ -568,7 +568,7 @@ void MainScene::plusHeart(Ref* sender, ui::Widget::TouchEventType type) {
 	switch (type)
 	{
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		_pageView->setVisible(false);
 		shopCoin->setVisible(false);
 		shopHeart->setVisible(true);
@@ -583,7 +583,7 @@ void MainScene::plusCoin(Ref* sender, ui::Widget::TouchEventType type) {
 	switch (type)
 	{
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		_pageView->setVisible(false);
 		shopHeart->setVisible(false);
 		shopCoin->setVisible(true);
@@ -598,7 +598,7 @@ void  MainScene::close(Ref* sender, ui::Widget::TouchEventType type) {
 	switch (type)
 	{
 	case ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		_pageView->setVisible(true);
 		_buttonClose->setVisible(false);
 		shopCoin->setVisible(false);
@@ -615,7 +615,7 @@ void MainScene::store(Ref* sender,ui::Widget::TouchEventType type) {
 	case cocos2d::ui::Widget::TouchEventType::BEGAN:
 		break;
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		if (_heart == 0) {
 			def->setIntegerForKey("heart", -1);
 		}
@@ -638,7 +638,7 @@ void MainScene::reset(Ref* sender,ui::Widget::TouchEventType type){
 	switch (type)
 	{
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		checkRemoveSure();
 	default:
 		break;
@@ -691,7 +691,7 @@ void MainScene::onClickNoPopup(Ref* sender, ui::Widget::TouchEventType type) {
 	switch (type)
 	{
 	case ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		_popupBG->removeFromParentAndCleanup(1);
 		break;
 	default:
@@ -702,7 +702,7 @@ void MainScene::back(Ref* sender, ui::Widget::TouchEventType type) {
 	switch (type)
 	{
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		if (_heart == 0) {
 			def->setIntegerForKey("heart", -1);
 		}
@@ -743,10 +743,10 @@ void MainScene::MenuCallback(cocos2d::Ref* pSender)
 	UserDefault::getInstance()->setIntegerForKey("curPage", _pageView->getCurPageIndex());
 	UserDefault::getInstance()->flush();
 	if (_heart > 0) {
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		Director::getInstance()->replaceScene(TransitionFade::create(0.5, HelloWorld::createScene("level" + to_string(pMenuItem->getTag()), _currentPage, hasPan), Color3B(0, 0, 0)));
 	}
 	else {
-		experimental::AudioEngine::play2d("error.mp3");
+		cocos2d::experimental::AudioEngine::play2d("error.mp3");
 	}
 }

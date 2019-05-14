@@ -65,5 +65,5 @@ Backup[ ]of[ ]*.key/
 Backup[ ]of[ ]*.numbers/
 
 proj.win32/ipch
-proj.win32/Debug
+proj.win32/Debug.win32
 proj.win32/.vs

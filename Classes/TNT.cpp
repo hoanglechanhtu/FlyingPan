@@ -90,7 +90,7 @@ bool TNT::onContactBegin(PhysicsContact& contact) {
 void TNT::explode() {
 	// Play TNT explode sound
 	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("boom.wav");
-	experimental::AudioEngine::play2d("boom.mp3");
+	cocos2d::experimental::AudioEngine::play2d("boom.mp3");
 	// If TNT's not exploded yet
 	if (_isExploded == false) {
 		// Set exploded

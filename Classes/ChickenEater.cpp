@@ -67,7 +67,7 @@ ChickenEater::~ChickenEater()
 void ChickenEater::destroy() {
 	// Play ChickenEater dead sound
 	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("ChickenEater.wav");
-	experimental::AudioEngine::play2d("alien.mp3");
+	cocos2d::experimental::AudioEngine::play2d("alien.mp3");
 	// Spawn FX
 	FX* bloodHitFX = new FX(
 		this->getPosition(),

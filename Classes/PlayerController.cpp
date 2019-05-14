@@ -234,7 +234,7 @@ void PlayerController::onTouchEnded(Touch* touch, Event* event) {
 	if (this->getParent()->getChildByName("Bullet")) return;
 
 	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("gunshot.wav");
-	experimental::AudioEngine::play2d("gunshot.mp3");
+	cocos2d::experimental::AudioEngine::play2d("gunshot.mp3");
 	_player->shoot();
 }
 

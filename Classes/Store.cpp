@@ -247,7 +247,7 @@ void Store::update(float dt) {
 void Store::back(Ref* sender, ui::Widget::TouchEventType type) {
 	switch (type) {
 	case ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		Director::getInstance()->replaceScene(MainScene::createScene(UserDefault::getInstance()->getIntegerForKey("curPage")));
 		break;
 	default:
@@ -262,7 +262,7 @@ void Store::buyItem(Ref* sender, ui::Widget::TouchEventType type) {
 	{
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
 		if (coin >= priceArr.at(button->getTag())) {
-			experimental::AudioEngine::play2d("buy.mp3");
+			cocos2d::experimental::AudioEngine::play2d("buy.mp3");
 			quantity++;
 			coin -= priceArr.at(button->getTag());
 			UserDefault::getInstance()->setIntegerForKey("coin", coin);
@@ -272,7 +272,7 @@ void Store::buyItem(Ref* sender, ui::Widget::TouchEventType type) {
 			coinLabel->setString(to_string(coin));
 		}
 		else {
-			experimental::AudioEngine::play2d("error.mp3");
+			cocos2d::experimental::AudioEngine::play2d("error.mp3");
 		}
 	default:
 		break;
@@ -284,7 +284,7 @@ void Store::buyCoin(Ref* sender, ui::Widget::TouchEventType type) {
 	switch (type)
 	{
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("buy.mp3");
+		cocos2d::experimental::AudioEngine::play2d("buy.mp3");
 		coin += coinToDollarArr.at(button->getTag());
 		UserDefault::getInstance()->setIntegerForKey("coin", coin);
 		coinLabel->setString(to_string(coin));
@@ -298,7 +298,7 @@ void Store::plusCoin(Ref* sender, ui::Widget::TouchEventType type) {
 	switch (type)
 	{
 	case cocos2d::ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		shopCoin->setVisible(true);
 		layer->setVisible(true);
 		_buttonClose->setVisible(true);
@@ -311,7 +311,7 @@ void  Store::close(Ref* sender, ui::Widget::TouchEventType type) {
 	switch (type)
 	{
 	case ui::Widget::TouchEventType::ENDED:
-		experimental::AudioEngine::play2d("click.mp3");
+		cocos2d::experimental::AudioEngine::play2d("click.mp3");
 		_buttonClose->setVisible(false);
 		shopCoin->setVisible(false);
 		layer->setVisible(false);

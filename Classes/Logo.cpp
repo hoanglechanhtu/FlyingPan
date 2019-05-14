@@ -55,18 +55,18 @@ bool Logo::init()
 
     auto visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	experimental::AudioEngine::preload("bgMusic.mp3");
-	experimental::AudioEngine::preload("level_bg_music.mp3");
-	experimental::AudioEngine::preload("pan.mp3");
-	experimental::AudioEngine::preload("alien.mp3");
-	experimental::AudioEngine::preload("boom.mp3");
-	experimental::AudioEngine::preload("gunshot.mp3");
-	experimental::AudioEngine::preload("roastedChicked.mp3");
-	experimental::AudioEngine::preload("winning.mp3");
-	experimental::AudioEngine::preload("wasted.mp3");
-	experimental::AudioEngine::preload("teleport.mp3");
+	cocos2d::experimental::AudioEngine::preload("bgMusic.mp3");
+	cocos2d::experimental::AudioEngine::preload("level_bg_music.mp3");
+	cocos2d::experimental::AudioEngine::preload("pan.mp3");
+	cocos2d::experimental::AudioEngine::preload("alien.mp3");
+	cocos2d::experimental::AudioEngine::preload("boom.mp3");
+	cocos2d::experimental::AudioEngine::preload("gunshot.mp3");
+	cocos2d::experimental::AudioEngine::preload("roastedChicked.mp3");
+	cocos2d::experimental::AudioEngine::preload("winning.mp3");
+	cocos2d::experimental::AudioEngine::preload("wasted.mp3");
+	cocos2d::experimental::AudioEngine::preload("teleport.mp3");
 
-	experimental::AudioEngine::play2d("bgMusic.mp3", true,0.8f);
+	cocos2d::experimental::AudioEngine::play2d("bgMusic.mp3", true,0.8f);
 	
 	//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	//audio->preloadBackgroundMusic("bgMusic.mp3");

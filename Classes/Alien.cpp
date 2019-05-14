@@ -65,7 +65,7 @@ Alien::~Alien()
 void Alien::destroy() {
 	// Play alien dead sound
 	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("alien.wav");
-	experimental::AudioEngine::play2d("alien.mp3");
+	cocos2d::experimental::AudioEngine::play2d("alien.mp3");
 	// Spawn FX
 	FX* bloodHitFX = new FX(
 		this->getPosition(),

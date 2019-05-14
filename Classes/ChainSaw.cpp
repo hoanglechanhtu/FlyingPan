@@ -90,7 +90,7 @@ void ChainSaw::explode(Bullet* bullet) {
 // Spawn splited chicken
 void ChainSaw::createSplitedChicken() {
 	// Play Chicken's Dead sound
-	experimental::AudioEngine::play2d("roastedChicken.mp3");
+	cocos2d::experimental::AudioEngine::play2d("roastedChicken.mp3");
 	// Spawn splited Chicken Sprite
 	Bullet* bullet = (Bullet*)this->getParent()->getChildByName("Bullet");
 	int direction = (bullet->getPhysicsBody()->getVelocity().x > 0) ? 1 : -1;

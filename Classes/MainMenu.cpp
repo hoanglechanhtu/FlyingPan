@@ -85,7 +85,7 @@ bool MainMenu::init()
 
 void MainMenu::playGameCallback(cocos2d::Ref* pSender) {
 	auto Scene = SelectMap::create();
-	experimental::AudioEngine::play2d("click.mp3");
+	cocos2d::experimental::AudioEngine::play2d("click.mp3");
 	Director::getInstance()->replaceScene(TransitionFade::create(0.4, Scene, Color3B(0, 0, 0)));
 	//Director::getInstance()->replaceScene(Scene);
 	//CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();

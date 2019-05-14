@@ -205,8 +205,8 @@ void MissionHandler::checkSubmissions(int timeRemain, int ammo, int bounces) {
 }
 
 void MissionHandler::winScene(int timeRemain, int ammo, int bounces) {
-	experimental::AudioEngine::pause(_idBgMusic);
-	experimental::AudioEngine::play2d("winning.mp3");
+	cocos2d::experimental::AudioEngine::pause(_idBgMusic);
+	cocos2d::experimental::AudioEngine::play2d("winning.mp3");
 
 	checkSubmissions(timeRemain, ammo, bounces);
 
@@ -285,8 +285,8 @@ void MissionHandler::failScene() {
 		def->setIntegerForKey("heart", heart);
 	}
 	def->flush();
-	experimental::AudioEngine::pause(_idBgMusic);
-	experimental::AudioEngine::play2d("wasted.mp3");
+	cocos2d::experimental::AudioEngine::pause(_idBgMusic);
+	cocos2d::experimental::AudioEngine::play2d("wasted.mp3");
 	Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(_playerController);
 
 	FailPoster* failPoster = new FailPoster(this);

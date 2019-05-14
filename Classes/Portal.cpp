@@ -144,7 +144,7 @@ void Portal::leteport(Bullet* bullet) {
 
 	// Play Portal explode sound
 	//CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("boom.wav");
-	experimental::AudioEngine::play2d("teleport.mp3");
+	cocos2d::experimental::AudioEngine::play2d("teleport.mp3");
 	// If Portal's not exploded yet
 	_bulletVelocity = bullet->getPhysicsBody()->getVelocity();
 	_bulletDirection = (_bulletVelocity.x > 0) ? 1 : -1;
