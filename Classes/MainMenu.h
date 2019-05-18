@@ -27,16 +27,19 @@
 
 #include "cocos2d.h"
 #include "SimpleAudioEngine.h"
+
+
 class MainMenu : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
 
     virtual bool init();
-    
+
+    void update(float dt);
     // a selector callback
     void playGameCallback(cocos2d::Ref* pSender);
-
+    void shareCallback(cocos2d::Ref* pSender);
     // implement the "static create()" method manually
     CREATE_FUNC(MainMenu);
 

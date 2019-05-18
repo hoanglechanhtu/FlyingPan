@@ -28,6 +28,15 @@
 #include "AudioEngine.h"
 #include "SimpleAudioEngine.h"
 #include "HelloWorldScene.h"
+
+
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include <android/log.h>
+#include <jni.h>
+#include "platform/android/jni/JniHelper.h"
+
+#endif
 USING_NS_CC;
 
 Scene* MainMenu::createScene()
@@ -79,13 +88,18 @@ bool MainMenu::init()
 	this->addChild(menu, 1);
 	this->addChild(background,0);
 	this->addChild(touchToPlay, 1);
-	
-    return true;
+    this->scheduleUpdate();
+	return true;
 }
 
+
+void MainMenu::update(float dt){
+
+}
 void MainMenu::playGameCallback(cocos2d::Ref* pSender) {
 	auto Scene = SelectMap::create();
-	cocos2d::experimental::AudioEngine::play2d("click.mp3");
+
+	experimental::AudioEngine::play2d("click.mp3");
 	Director::getInstance()->replaceScene(TransitionFade::create(0.4, Scene, Color3B(0, 0, 0)));
 	//Director::getInstance()->replaceScene(Scene);
 	//CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();

@@ -24,7 +24,10 @@ THE SOFTWARE.
 
 #include "AppDelegate.h"
 #include "Logo.h"
-
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "PluginShare/PluginShare.h"
+#include "PluginAdMob/PluginAdMob.h"
+#endif
 // #define USE_AUDIO_ENGINE 1
 // #define USE_SIMPLE_AUDIO_ENGINE 1
 
@@ -34,7 +37,7 @@ THE SOFTWARE.
 
 #if USE_AUDIO_ENGINE
 #include "audio/include/AudioEngine.h"
-using namespace cocos2d::experimental;
+using namespace experimental;
 #elif USE_SIMPLE_AUDIO_ENGINE
 #include "audio/include/SimpleAudioEngine.h"
 using namespace CocosDenshion;
@@ -121,7 +124,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	//}
 
 	register_all_packages();
-
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    sdkbox::PluginShare::init();
+    sdkbox::PluginAdMob::init();
+    sdkbox::PluginAdMob::cache("home");
+    sdkbox::PluginAdMob::cache("gameover");
+#endif
 	// create a scene. it's an autorelease object
 	auto scene = Logo::createScene();
 

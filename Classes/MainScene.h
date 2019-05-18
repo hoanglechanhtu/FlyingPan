@@ -59,7 +59,7 @@ private:
 	vector<float> dollarArr;
 	vector<int> coinToHeartArr;
 	vector<int> heartArr;
-
+    bool shareFirstTouch= true;
 	void next(Ref* sender, ui::Widget::TouchEventType type);
 	void previous(Ref* sender, ui::Widget::TouchEventType type);
 	void close(Ref* sender, ui::Widget::TouchEventType type);
@@ -70,6 +70,7 @@ private:
 	void buyCoin(Ref* sender, ui::Widget::TouchEventType type);
 	void buyHeart(Ref* sender, ui::Widget::TouchEventType type);
 	void back(Ref* sender, ui::Widget::TouchEventType type);
+	void share(Ref* sender, ui::Widget::TouchEventType type);
 	void checkRemoveSure();
 	void onClickYesPopupRemove(Ref* sender, ui::Widget::TouchEventType type);
 	void onClickNoPopup(Ref* sender, ui::Widget::TouchEventType type);
